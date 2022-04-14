@@ -16,6 +16,8 @@ public class BaseController {
     public static final Integer COMMON_PAGE_SIZE = 10;
     public static final Integer PAGE_SIZE = 20;
 
+    public static final String REDIS_USER_TOKEN = "redis_user_token";
+
     // 支付中心的调用地址
     String paymentUrl = "http://payment.t.mukewang.com/foodie-payment/payment/createMerchantOrder";		// produce
 
@@ -36,7 +38,6 @@ public class BaseController {
 
     /**
      * 用于验证用户和订单是否有关联关系，避免非法用户调用
-     * @return
      */
     public IMOOCJSONResult checkUserOrder(String userId, String orderId) {
         Orders order = myOrdersService.queryMyOrder(userId, orderId);
